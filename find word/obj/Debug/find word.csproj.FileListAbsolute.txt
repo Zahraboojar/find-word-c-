@@ -1,0 +1,9 @@
+C:\Users\Allah\Desktop\c# pro\find word\find word\bin\Debug\find word.exe.config
+C:\Users\Allah\Desktop\c# pro\find word\find word\bin\Debug\find word.exe
+C:\Users\Allah\Desktop\c# pro\find word\find word\bin\Debug\find word.pdb
+C:\Users\Allah\Desktop\c# pro\find word\find word\obj\Debug\find word.csprojResolveAssemblyReference.cache
+C:\Users\Allah\Desktop\c# pro\find word\find word\obj\Debug\find_word.Form1.resources
+C:\Users\Allah\Desktop\c# pro\find word\find word\obj\Debug\find_word.Properties.Resources.resources
+C:\Users\Allah\Desktop\c# pro\find word\find word\obj\Debug\find word.csproj.GenerateResource.Cache
+C:\Users\Allah\Desktop\c# pro\find word\find word\obj\Debug\find word.exe
+C:\Users\Allah\Desktop\c# pro\find word\find word\obj\Debug\find word.pdb
