@@ -63,6 +63,7 @@
             BtnUpdate.TabIndex = 2;
             BtnUpdate.Text = "Edit";
             BtnUpdate.UseVisualStyleBackColor = true;
+            BtnUpdate.Click += BtnUpdate_Click;
             // 
             // dataGridView1
             // 

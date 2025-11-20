@@ -4,22 +4,40 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace person2
 {
-    public partial class FrmAddPerson : Form
+    public partial class FrmEditPerson : Form
     {
-        public FrmAddPerson()
+        Person person;
+        int index;
+        public FrmEditPerson(Person person, int index)
         {
             InitializeComponent();
+            this.person = person;
+            this.index = index;
+        }
+
+        private void FrmEditPerson_Load(object sender, EventArgs e)
+        {
+            TxtName.Text = person.Name;
+            TxtFamily.Text = person.Family;
+            TxtNationalCode.Text = person.National_code;
+            if (person.Gender == "famale")
+                RBtnFamale.Checked = true;
+            else
+                RBtnMale.Checked = true;
+
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
             Person person = new Person();
+
             if (person.ValidateTextBox(TxtName).IsSuccess)
                 person.Name = TxtName.Text;
             else
@@ -29,7 +47,7 @@ namespace person2
             }
 
             if (person.ValidateTextBox(TxtFamily).IsSuccess)
-                person.Family = TxtFamily.Text;
+                    person.Family = TxtFamily.Text;
             else
             {
                 MessageBox.Show(person.ValidateTextBox(TxtFamily).message);
@@ -51,12 +69,12 @@ namespace person2
             }
             string gender = "famale";
             if (RBtnMale.Checked) gender = "male";
-            person.Gender = gender;
-            var frmFirst = Application.OpenForms["FrmPerson"] as FrmPerson;
+            else gender = "famale";
+                person.Gender = gender;
+            var frmEdit = Application.OpenForms["FrmPerson"] as FrmPerson;
 
-            frmFirst.ListPerson.Add(person);
+            frmEdit.ListPerson[index] = person;
             this.Close();
-
         }
     }
 }
