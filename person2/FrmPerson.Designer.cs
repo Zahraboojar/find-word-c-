@@ -32,10 +32,6 @@
             BtnDelete = new Button();
             BtnUpdate = new Button();
             dataGridView1 = new DataGridView();
-            national_Code = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            family = new DataGridViewTextBoxColumn();
-            gender = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -71,31 +67,10 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { national_Code, name, family, gender });
             dataGridView1.Location = new Point(261, 93);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(447, 271);
             dataGridView1.TabIndex = 3;
-            // 
-            // national_Code
-            // 
-            national_Code.HeaderText = "national_Code";
-            national_Code.Name = "national_Code";
-            // 
-            // name
-            // 
-            name.HeaderText = "name";
-            name.Name = "name";
-            // 
-            // family
-            // 
-            family.HeaderText = "family";
-            family.Name = "family";
-            // 
-            // gender
-            // 
-            gender.HeaderText = "gender";
-            gender.Name = "gender";
             // 
             // FrmPerson
             // 
@@ -119,9 +94,5 @@
         private Button BtnDelete;
         private Button BtnUpdate;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn national_Code;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn family;
-        private DataGridViewTextBoxColumn gender;
     }
 }

@@ -29,6 +29,7 @@ namespace person2
             var frmFirst = Application.OpenForms["FrmPerson"] as FrmPerson;
 
             frmFirst.ListPerson.Add(person);
+            this.Close();
 
         }
     }
