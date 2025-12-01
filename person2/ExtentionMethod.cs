@@ -8,7 +8,7 @@ namespace person2
 {
     internal static class ExtentionMethods
     {
-        public static bool ValidateNationalCode(this string nationalCode)
+        public static bool IsValidateNationalCode(this string nationalCode)
         {
             bool valid = true;
             if (nationalCode.Length != 10) return false;

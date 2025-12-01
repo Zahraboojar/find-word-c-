@@ -18,7 +18,7 @@ namespace person2
                 Fill_Dvg();
             }
             else
-                MessageBox.Show(person.IsSelected(dataGridView1).message);
+                MessageBox.Show(person.IsSelected(dataGridView1).Message);
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace person2
                 Fill_Dvg();
             }
             else
-                MessageBox.Show(person.IsSelected(dataGridView1).message);
+                MessageBox.Show(person.IsSelected(dataGridView1).Message);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace person2
                 person.Name = TxtName.Text;
             else
             {
-                MessageBox.Show(person.ValidateTextBox(TxtName).message);
+                MessageBox.Show(person.ValidateTextBox(TxtName).Message);
                 return;
             }
 
@@ -32,12 +32,12 @@ namespace person2
                 person.Family = TxtFamily.Text;
             else
             {
-                MessageBox.Show(person.ValidateTextBox(TxtFamily).message);
+                MessageBox.Show(person.ValidateTextBox(TxtFamily).Message);
                 return;
             }
 
             if (person.ValidateTextBox(TxtNationalCode).IsSuccess)
-                if (!TxtNationalCode.Text.ValidateNationalCode())
+                if (!TxtNationalCode.Text.IsValidateNationalCode())
                 {
                     MessageBox.Show("Invalid national code");
                     return;
@@ -46,7 +46,7 @@ namespace person2
                     person.National_code = TxtNationalCode.Text;
             else
             {
-                MessageBox.Show(person.ValidateTextBox(TxtNationalCode).message);
+                MessageBox.Show(person.ValidateTextBox(TxtNationalCode).Message);
                 return;
             }
             string gender = "famale";
