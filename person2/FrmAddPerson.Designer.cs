@@ -146,7 +146,8 @@
             Controls.Add(TxtName);
             Name = "FrmAddPerson";
             RightToLeft = RightToLeft.Yes;
-            Text = "FrmAddPerson";
+            Text = "FrmAEditPerson";
+            Load += FrmAddPerson_Load;
             ResumeLayout(false);
             PerformLayout();
         }

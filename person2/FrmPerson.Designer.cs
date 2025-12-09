@@ -32,6 +32,9 @@
             BtnDelete = new Button();
             BtnUpdate = new Button();
             dataGridView1 = new DataGridView();
+            name = new DataGridViewTextBoxColumn();
+            family = new DataGridViewTextBoxColumn();
+            national_code = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -68,10 +71,29 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { name, family, national_code });
             dataGridView1.Location = new Point(261, 93);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(447, 271);
             dataGridView1.TabIndex = 3;
+            // 
+            // name
+            // 
+            name.DataPropertyName = "Name";
+            name.HeaderText = "name";
+            name.Name = "name";
+            // 
+            // family
+            // 
+            family.DataPropertyName = "Family";
+            family.HeaderText = "family";
+            family.Name = "family";
+            // 
+            // national_code
+            // 
+            national_code.DataPropertyName = "National_code";
+            national_code.HeaderText = "national_code";
+            national_code.Name = "national_code";
             // 
             // FrmPerson
             // 
@@ -95,5 +117,8 @@
         private Button BtnDelete;
         private Button BtnUpdate;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn family;
+        private DataGridViewTextBoxColumn national_code;
     }
 }

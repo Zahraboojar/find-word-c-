@@ -12,9 +12,29 @@ namespace person2
 {
     public partial class FrmAddPerson : Form
     {
+        PersonManager personManager = new PersonManager();
+        Person person ;
+        int index;
+
         public FrmAddPerson()
         {
             InitializeComponent();
+            person = null;
+            index = 0;
+        }
+
+        public FrmAddPerson(Person persone, int index)
+        {
+            InitializeComponent(); 
+            this.person = persone;
+            this.index = index;
+            TxtFamily.Text = persone.Family;
+            TxtName.Text = persone.Name;
+            TxtNationalCode.Text = person.National_code;
+            if (persone.Gender == Gender.Famale)
+                RBtnFamale.Checked = true;
+            else RBtnMale.Checked = true;
+            
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -49,13 +69,25 @@ namespace person2
                 MessageBox.Show(person.ValidateTextBox(TxtNationalCode).Message);
                 return;
             }
-            string gender = "famale";
-            if (RBtnMale.Checked) gender = "male";
-            person.Gender = gender;
-            var frmFirst = Application.OpenForms["FrmPerson"] as FrmPerson;
+            if (RBtnMale.Checked) person.Gender = Gender.Male;
+            else person.Gender = Gender.Famale;
 
-            frmFirst.ListPerson.Add(person);
+            if (this.person == null)
+            {
+                personManager.Add(person);
+                AlertHelper.Information("add new person successfully");
+
+            } else
+            {
+                personManager.Edit(person, index);
+                AlertHelper.Information("edit person successfully");
+            }
             this.Close();
+
+        }
+
+        private void FrmAddPerson_Load(object sender, EventArgs e)
+        {
 
         }
     }

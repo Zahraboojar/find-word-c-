@@ -11,31 +11,21 @@ namespace person2
         public string Name { get; set; }
         public string Family { get; set; }
         public string National_code { get; set; }
-        public string Gender { get; set; }
+        public Gender Gender { get; set; }
         public int  Id { get; set; }
         public OperationResult ValidateTextBox(TextBox textBox)
         {
-            OperationResult valid = new OperationResult();
             if (textBox.Text == "")
-            {
-                valid.IsSuccess = false;
-                valid.Message = textBox.Name + " is empty";
-            }
+                return OperationResult.Failed(textBox.Name + " is empty");
             else
-                valid.IsSuccess = true;
-            return valid;
+                return OperationResult.Success();
         }
         public OperationResult IsSelected(DataGridView dgv)
         {
-            OperationResult valid = new OperationResult();
             if (dgv.CurrentCell == null)
-            {
-                valid.IsSuccess = false;
-                valid.Message = "No cells selected. First select";
-            }
+                return OperationResult.Failed("No cells selected. First select");
             else
-                valid.IsSuccess = true;
-            return valid;
+                return OperationResult.Success();
         }
     }
 }

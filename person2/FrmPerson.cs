@@ -2,7 +2,7 @@ namespace person2
 {
     public partial class FrmPerson : Form
     {
-        public List<Person> ListPerson = new List<Person>();
+        PersonManager personManager = new PersonManager();
         public FrmPerson()
         {
             InitializeComponent();
@@ -14,7 +14,9 @@ namespace person2
             if (person.IsSelected(dataGridView1).IsSuccess)
             {
                 Person row = (Person)dataGridView1.CurrentRow.DataBoundItem;
-                ListPerson.Remove(row);
+                DialogResult rersult = AlertHelper.Question($"Are you sure to delete {row.Name}");
+                if (rersult == DialogResult.Yes)
+                    personManager.RemovePerson(row);
                 Fill_Dvg();
             }
             else
@@ -30,7 +32,7 @@ namespace person2
         }
         private void Fill_Dvg()
         {
-            dataGridView1.DataSource = ListPerson.ToList();
+            dataGridView1.DataSource = personManager.GetPersons().ToList();
         }
 
         private void FrmPerson_Load(object sender, EventArgs e)
@@ -45,8 +47,8 @@ namespace person2
             {
                 Person row = (Person)dataGridView1.CurrentRow.DataBoundItem;
                 int index = dataGridView1.CurrentRow.Index;
-                FrmEditPerson FrmEditPerson = new FrmEditPerson(row, index);
-                FrmEditPerson.Text = "add new person";
+                FrmAddPerson FrmEditPerson = new FrmAddPerson(row, index);
+                FrmEditPerson.Text = "Edit person";
                 FrmEditPerson.ShowDialog();
                 Fill_Dvg();
             }
