@@ -13,6 +13,11 @@ namespace person2
         public string National_code { get; set; }
         public Gender Gender { get; set; }
         public int  Id { get; set; }
+
+        public virtual string FullName()
+        {
+            return $"{Name} {Family}";
+        }
         public OperationResult ValidateTextBox(TextBox textBox)
         {
             if (textBox.Text == "")
