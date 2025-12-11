@@ -21,14 +21,14 @@ namespace person2
         public OperationResult ValidateTextBox(TextBox textBox)
         {
             if (textBox.Text == "")
-                return OperationResult.Failed(textBox.Name + " is empty");
+                return OperationResult.Failed("فیلد "+textBox.Name + " خالی است ");
             else
                 return OperationResult.Success();
         }
         public OperationResult IsSelected(DataGridView dgv)
         {
             if (dgv.CurrentCell == null)
-                return OperationResult.Failed("No cells selected. First select");
+                return OperationResult.Failed("هیچ سلولی انتخاب نشده. ابتدا انتخاب کنید");
             else
                 return OperationResult.Success();
         }

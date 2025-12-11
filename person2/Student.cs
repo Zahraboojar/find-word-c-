@@ -26,28 +26,20 @@ namespace person2
             {
                 case Grade.Elementary_School:
                     return "ابتدایی";
-                    break;
                 case Grade.Middel_School:
                     return "راهنمایی";
-                    break;
                 case Grade.Diploma:
                     return "دیپلم";
-                    break;
                 case Grade.Associate:
                     return "فوق دیپلم";
-                    break;
                 case Grade.Bachelor:
                     return "لیسانس";
-                    break;
                 case Grade.Master:
                     return "فوق لیسانس";
-                    break;
                 case Grade.Doctorate:
                     return "دکترا";
-                    break;
                 default:
                     return "نامشخص";
-                    break;
             }
         }
 

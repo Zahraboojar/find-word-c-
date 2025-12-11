@@ -24,11 +24,11 @@ namespace person2
         {
             Student student = null;
 
-            foreach (var personsItem in studentList)
+            foreach (var studentsItem in studentList)
             {
-                if (personsItem.Id == id)
+                if (studentsItem.Id == id)
                 {
-                    student = personsItem;
+                    student = studentsItem;
                     break;
                 }
             }
