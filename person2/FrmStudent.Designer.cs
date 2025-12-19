@@ -31,15 +31,15 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            TxtNationalCode = new TextBox();
-            TxtFamily = new TextBox();
-            TxtName = new TextBox();
-            TxtStCode = new TextBox();
             label4 = new Label();
             label5 = new Label();
             CobGrade = new ComboBox();
             BtnSave = new Button();
             BtnSave2 = new Button();
+            TxtName = new CustomTextBox();
+            TxtFamily = new CustomTextBox();
+            TxtNationalCode = new CustomTextBox();
+            TxtStCode = new CustomTextBox();
             SuspendLayout();
             // 
             // label3
@@ -69,36 +69,6 @@
             label1.TabIndex = 11;
             label1.Text = "name:";
             // 
-            // TxtNationalCode
-            // 
-            TxtNationalCode.Location = new Point(81, 103);
-            TxtNationalCode.Name = "TxtNationalCode";
-            TxtNationalCode.Size = new Size(148, 23);
-            TxtNationalCode.TabIndex = 2;
-            TxtNationalCode.KeyPress += TxtStCode_KeyPress;
-            // 
-            // TxtFamily
-            // 
-            TxtFamily.Location = new Point(81, 74);
-            TxtFamily.Name = "TxtFamily";
-            TxtFamily.Size = new Size(148, 23);
-            TxtFamily.TabIndex = 1;
-            // 
-            // TxtName
-            // 
-            TxtName.Location = new Point(81, 45);
-            TxtName.Name = "TxtName";
-            TxtName.Size = new Size(148, 23);
-            TxtName.TabIndex = 0;
-            // 
-            // TxtStCode
-            // 
-            TxtStCode.Location = new Point(81, 132);
-            TxtStCode.Name = "TxtStCode";
-            TxtStCode.Size = new Size(148, 23);
-            TxtStCode.TabIndex = 3;
-            TxtStCode.KeyPress += TxtStCode_KeyPress;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -123,14 +93,14 @@
             CobGrade.Location = new Point(108, 169);
             CobGrade.Name = "CobGrade";
             CobGrade.Size = new Size(121, 23);
-            CobGrade.TabIndex = 4;
+            CobGrade.TabIndex = 5;
             // 
             // BtnSave
             // 
             BtnSave.Location = new Point(184, 225);
             BtnSave.Name = "BtnSave";
             BtnSave.Size = new Size(94, 23);
-            BtnSave.TabIndex = 5;
+            BtnSave.TabIndex = 7;
             BtnSave.Text = "ثبت و بازگشت";
             BtnSave.UseVisualStyleBackColor = true;
             BtnSave.Click += BtnSave_Click;
@@ -140,16 +110,50 @@
             BtnSave2.Location = new Point(81, 225);
             BtnSave2.Name = "BtnSave2";
             BtnSave2.Size = new Size(75, 23);
-            BtnSave2.TabIndex = 5;
+            BtnSave2.TabIndex = 6;
             BtnSave2.Text = "ثبت و جدید";
             BtnSave2.UseVisualStyleBackColor = true;
             BtnSave2.Click += BtnSave_Click;
+            // 
+            // TxtName
+            // 
+            TxtName.Location = new Point(129, 48);
+            TxtName.Name = "TxtName";
+            TxtName.Size = new Size(100, 23);
+            TxtName.TabIndex = 1;
+            // 
+            // TxtFamily
+            // 
+            TxtFamily.Location = new Point(129, 77);
+            TxtFamily.Name = "TxtFamily";
+            TxtFamily.Size = new Size(100, 23);
+            TxtFamily.TabIndex = 2;
+            // 
+            // TxtNationalCode
+            // 
+            TxtNationalCode.Location = new Point(129, 108);
+            TxtNationalCode.Name = "TxtNationalCode";
+            TxtNationalCode.Size = new Size(100, 23);
+            TxtNationalCode.TabIndex = 3;
+            TxtNationalCode.KeyPress += TxtStCode_KeyPress;
+            // 
+            // TxtStCode
+            // 
+            TxtStCode.Location = new Point(129, 140);
+            TxtStCode.Name = "TxtStCode";
+            TxtStCode.Size = new Size(100, 23);
+            TxtStCode.TabIndex = 4;
+            TxtStCode.KeyPress += TxtStCode_KeyPress;
             // 
             // FrmStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(376, 300);
+            Controls.Add(TxtStCode);
+            Controls.Add(TxtNationalCode);
+            Controls.Add(TxtFamily);
+            Controls.Add(TxtName);
             Controls.Add(BtnSave2);
             Controls.Add(BtnSave);
             Controls.Add(CobGrade);
@@ -158,10 +162,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(TxtStCode);
-            Controls.Add(TxtNationalCode);
-            Controls.Add(TxtFamily);
-            Controls.Add(TxtName);
             Name = "FrmStudent";
             RightToLeft = RightToLeft.Yes;
             Text = "FrmStudent";
@@ -175,14 +175,14 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox TxtNationalCode;
-        private TextBox TxtFamily;
-        private TextBox TxtName;
-        private TextBox TxtStCode;
         private Label label4;
         private Label label5;
         private ComboBox CobGrade;
         private Button BtnSave;
         private Button BtnSave2;
+        private CustomTextBox TxtName;
+        private CustomTextBox TxtFamily;
+        private CustomTextBox TxtNationalCode;
+        private CustomTextBox TxtStCode;
     }
 }
