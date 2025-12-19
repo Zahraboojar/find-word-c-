@@ -233,7 +233,7 @@
         private CustomTextBox customTextBox1;
         private CustomTextBox customTextBox2;
         private CustomTextBox customTextBox3;
-        private CustomTextBox TxtPhoneNumber;
+        private CustomTextBox customTextBox4;
         private CustomTextBox TxtAddress;
         private CustomTextBox TxtField;
     }
