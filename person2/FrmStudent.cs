@@ -31,7 +31,7 @@ namespace person2
 
         private void FrmStudent_Load(object sender, EventArgs e)
         {
-            CobGrade.Items.AddRange(Enum.GetNames(typeof(Grade)));
+            CobGrade.Items.AddRange(Student.GetAllFaGrade());
             if (student != null)
             {
                 TxtName.Text = student.Name;
@@ -84,28 +84,8 @@ namespace person2
 
         private bool IsValidContrles(Student newStudent)
         {
-            if (!newStudent.ValidateTextBox(TxtName).IsSuccess)
+            if (newStudent.ValidateTextBox(TxtNationalCode).IsSuccess)
             {
-                AlertHelper.Error(student.ValidateTextBox(TxtName).Message);
-                return false;
-            }
-            if (!newStudent.ValidateTextBox(TxtFamily).IsSuccess)
-            {
-                AlertHelper.Error(student.ValidateTextBox(TxtFamily).Message);
-                return false;
-            }
-            if (!newStudent.ValidateTextBox(TxtNationalCode).IsSuccess)
-            {
-                AlertHelper.Error(student.ValidateTextBox(TxtNationalCode).Message);
-                return false;
-            }
-            else
-            {
-                if (!TxtNationalCode.Text.IsValidateNationalCode())
-                {
-                    AlertHelper.Error("کد ملی نامعتبر است");
-                    return false;
-                }
                 if (this.student == null || this.student.National_code != TxtNationalCode.Text)
                     if (studentManager.IsDuplicateNationalCode(TxtNationalCode.Text))
                     {
@@ -113,12 +93,7 @@ namespace person2
                         return false;
                     }
             }
-            if (!newStudent.ValidateTextBox(TxtStCode).IsSuccess)
-            {
-                AlertHelper.Error(newStudent.ValidateTextBox(TxtStCode).Message);
-                return false;
-            }
-            else
+            if (newStudent.ValidateTextBox(TxtStCode).IsSuccess)
             {
                 if (this.student == null || this.student.StudentCode != TxtStCode.Text)
                     if (studentManager.IsDuplicateStudentCode(TxtStCode.Text))

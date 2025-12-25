@@ -32,13 +32,6 @@
             BtnDelete = new Button();
             BtnUpdate = new Button();
             dataGridView1 = new DataGridView();
-            Id = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            family = new DataGridViewTextBoxColumn();
-            national_code = new DataGridViewTextBoxColumn();
-            PhoneNumber = new DataGridViewTextBoxColumn();
-            Address = new DataGridViewTextBoxColumn();
-            Field = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -75,53 +68,10 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, name, family, national_code, PhoneNumber, Address, Field });
             dataGridView1.Location = new Point(35, 129);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(717, 271);
             dataGridView1.TabIndex = 3;
-            // 
-            // Id
-            // 
-            Id.DataPropertyName = "Id";
-            Id.HeaderText = "کد";
-            Id.Name = "Id";
-            // 
-            // name
-            // 
-            name.DataPropertyName = "Name";
-            name.HeaderText = "نام";
-            name.Name = "name";
-            // 
-            // family
-            // 
-            family.DataPropertyName = "Family";
-            family.HeaderText = "نام خانوادگی";
-            family.Name = "family";
-            // 
-            // national_code
-            // 
-            national_code.DataPropertyName = "National_code";
-            national_code.HeaderText = "کد ملی";
-            national_code.Name = "national_code";
-            // 
-            // PhoneNumber
-            // 
-            PhoneNumber.DataPropertyName = "PhoneNumber";
-            PhoneNumber.HeaderText = "شماره موبایل";
-            PhoneNumber.Name = "PhoneNumber";
-            // 
-            // Address
-            // 
-            Address.DataPropertyName = "Address";
-            Address.HeaderText = "آدرس";
-            Address.Name = "Address";
-            // 
-            // Field
-            // 
-            Field.DataPropertyName = "Field";
-            Field.HeaderText = "رشته";
-            Field.Name = "Field";
             // 
             // FrmTeachers
             // 
@@ -145,12 +95,5 @@
         private Button BtnDelete;
         private Button BtnUpdate;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn family;
-        private DataGridViewTextBoxColumn national_code;
-        private DataGridViewTextBoxColumn PhoneNumber;
-        private DataGridViewTextBoxColumn Address;
-        private DataGridViewTextBoxColumn Field;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace person2
 {
     public class Student : Person
     {
+        [Required]
         public string StudentCode { get; set; }
         public Grade Grade { get; set; }
         public override string ToString()
@@ -41,6 +43,10 @@ namespace person2
                 default:
                     return "نامشخص";
             }
+        }
+        public static string[] GetAllFaGrade()
+        {
+            return new string[] { "ابتدایی" , "راهنمایی" , "دیپلم" , "فوق دیپلم" , "لیسانس" , "فوق لیسانس" , "دکترا"};
         }
 
         public override bool Equals(object st)

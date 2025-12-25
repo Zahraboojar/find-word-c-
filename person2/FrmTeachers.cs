@@ -36,6 +36,7 @@
         private void Fill_Dvg()
         {
             dataGridView1.DataSource = teacherManager.GetAll().ToList();
+            dataGridView1.BindColumns<Teacher>();
         }
 
         private void FrmTeacher_Load(object sender, EventArgs e)

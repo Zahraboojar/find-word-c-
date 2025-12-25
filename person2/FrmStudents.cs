@@ -57,6 +57,7 @@ namespace person2
         private void Fill_Dvg()
         {
             dataGridView1.DataSource = StudentManager.GetAll().ToList();
+            dataGridView1.BindColumns<Student>();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -80,6 +81,11 @@ namespace person2
         private void FrmStudents_Load(object sender, EventArgs e)
         {
             Fill_Dvg();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

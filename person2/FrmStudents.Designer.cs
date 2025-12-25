@@ -34,12 +34,6 @@
             label1 = new Label();
             BtnAdd = new Button();
             dataGridView1 = new DataGridView();
-            ColId = new DataGridViewTextBoxColumn();
-            ColName = new DataGridViewTextBoxColumn();
-            ColFamily = new DataGridViewTextBoxColumn();
-            ColNationalCode = new DataGridViewTextBoxColumn();
-            ColStudentCode = new DataGridViewTextBoxColumn();
-            ColGrade = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -93,47 +87,11 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColId, ColName, ColFamily, ColNationalCode, ColStudentCode, ColGrade });
             dataGridView1.Location = new Point(70, 195);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(619, 150);
             dataGridView1.TabIndex = 6;
-            // 
-            // ColId
-            // 
-            ColId.DataPropertyName = "Id";
-            ColId.HeaderText = "شماره";
-            ColId.Name = "ColId";
-            // 
-            // ColName
-            // 
-            ColName.DataPropertyName = "Name";
-            ColName.HeaderText = "نام";
-            ColName.Name = "ColName";
-            // 
-            // ColFamily
-            // 
-            ColFamily.DataPropertyName = "Family";
-            ColFamily.HeaderText = "نام خانوادگی";
-            ColFamily.Name = "ColFamily";
-            // 
-            // ColNationalCode
-            // 
-            ColNationalCode.DataPropertyName = "National_Code";
-            ColNationalCode.HeaderText = "کد ملی";
-            ColNationalCode.Name = "ColNationalCode";
-            // 
-            // ColStudentCode
-            // 
-            ColStudentCode.DataPropertyName = "StudentCode";
-            ColStudentCode.HeaderText = "کد دانش آموزی";
-            ColStudentCode.Name = "ColStudentCode";
-            // 
-            // ColGrade
-            // 
-            ColGrade.DataPropertyName = "Grade";
-            ColGrade.HeaderText = "مقطع تحصیلی";
-            ColGrade.Name = "ColGrade";
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // FrmStudents
             // 
@@ -164,11 +122,5 @@
         private Label label1;
         private Button BtnAdd;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ColId;
-        private DataGridViewTextBoxColumn ColName;
-        private DataGridViewTextBoxColumn ColFamily;
-        private DataGridViewTextBoxColumn ColNationalCode;
-        private DataGridViewTextBoxColumn ColStudentCode;
-        private DataGridViewTextBoxColumn ColGrade;
     }
 }
