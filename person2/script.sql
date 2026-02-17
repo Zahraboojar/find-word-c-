@@ -1,0 +1,190 @@
+﻿USE [master]
+GO
+/****** Object:  Database [Schooldb]    Script Date: 28/11/1404 03:33:29 ب.ظ ******/
+CREATE DATABASE [Schooldb]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Schooldb', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\Schooldb.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Schooldb_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\Schooldb_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [Schooldb] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Schooldb].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Schooldb] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Schooldb] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Schooldb] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Schooldb] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Schooldb] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Schooldb] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Schooldb] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Schooldb] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Schooldb] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Schooldb] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Schooldb] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Schooldb] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Schooldb] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Schooldb] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Schooldb] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Schooldb] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Schooldb] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Schooldb] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Schooldb] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Schooldb] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Schooldb] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Schooldb] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Schooldb] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Schooldb] SET  MULTI_USER 
+GO
+ALTER DATABASE [Schooldb] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Schooldb] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Schooldb] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Schooldb] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Schooldb] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Schooldb] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Schooldb', N'ON'
+GO
+ALTER DATABASE [Schooldb] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [Schooldb] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [Schooldb]
+GO
+/****** Object:  Table [dbo].[Lessons]    Script Date: 28/11/1404 03:33:29 ب.ظ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Lessons](
+	[Id] [int] NOT NULL,
+	[Title] [nvarchar](50) NOT NULL,
+	[Unit] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Register]    Script Date: 28/11/1404 03:33:29 ب.ظ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Register](
+	[Id] [int] NOT NULL,
+	[Iesson_Id] [int] NOT NULL,
+	[Student_Id] [int] NOT NULL,
+	[Teacher_Id] [int] NOT NULL,
+	[Score] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Students]    Script Date: 28/11/1404 03:33:29 ب.ظ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Students](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nchar](100) NOT NULL,
+	[Family] [nvarchar](255) NOT NULL,
+	[National_Code] [nchar](10) NOT NULL,
+	[Birth_Date] [nchar](10) NOT NULL,
+	[Student_Code] [nchar](10) NOT NULL,
+ CONSTRAINT [PK_students] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Teachers]    Script Date: 28/11/1404 03:33:29 ب.ظ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Teachers](
+	[Id] [int] NOT NULL,
+	[Name] [nchar](100) NOT NULL,
+	[Family] [nvarchar](255) NOT NULL,
+	[National_Code] [nchar](10) NOT NULL,
+	[Birth_Date] [nchar](10) NOT NULL,
+	[Phone_Number] [nchar](11) NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Register] ADD  CONSTRAINT [DF_register_score]  DEFAULT ((0)) FOR [Score]
+GO
+/****** Object:  StoredProcedure [dbo].[InsertStudent]    Script Date: 28/11/1404 03:33:29 ب.ظ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[InsertStudent]
+    @Name NVARCHAR(100),
+    @Family NVARCHAR(225),
+    @National_Code NCHAR(10),
+    @Birth_Date NCHAR(10),
+    @Student_Code NCHAR(10)
+AS
+BEGIN
+    INSERT INTO dbo.Students
+        ([Name],[Family],[National_Code],[Birth_Date],[Student_Code])
+    VALUES
+        (@Name,@Family,@National_Code,@Birth_Date,@Student_Code)
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateStudent]    Script Date: 28/11/1404 03:33:29 ب.ظ ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[UpdateStudent]
+    @Name NVARCHAR(100),
+    @Family NVARCHAR(225),
+    @National_Code NCHAR(10),
+    @Birth_Date NCHAR(10),
+    @Student_Code NCHAR(10)
+AS
+BEGIN
+    UPDATE dbo.Students
+    SET 
+        [Name] = @Name,
+        [Family] = @Family,
+        [National_Code] = @National_Code,
+        [Birth_Date] = @Birth_Date
+    WHERE 
+        [Student_Code] = @Student_Code
+END
+GO
+USE [master]
+GO
+ALTER DATABASE [Schooldb] SET  READ_WRITE 
+GO
