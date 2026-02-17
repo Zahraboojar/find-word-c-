@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace person2
 {
-    internal class StudentManager
+    internal class StudentManagerList
     {
         private static List<Student> studentList;
 
-        public StudentManager()
+        public StudentManagerList()
         {
             if (studentList == null)
                 studentList = new List<Student>();

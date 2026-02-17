@@ -30,7 +30,7 @@
         {
             BtnDelete = new Button();
             BtnEdit = new Button();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             label1 = new Label();
             BtnAdd = new Button();
             dataGridView1 = new DataGridView();
@@ -57,12 +57,13 @@
             BtnEdit.UseVisualStyleBackColor = true;
             BtnEdit.Click += BtnAdd_Click;
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Location = new Point(460, 70);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(204, 23);
-            textBox1.TabIndex = 4;
+            txtSearch.Location = new Point(460, 70);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(204, 23);
+            txtSearch.TabIndex = 4;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label1
             // 
@@ -100,7 +101,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearch);
             Controls.Add(BtnEdit);
             Controls.Add(BtnAdd);
             Controls.Add(BtnDelete);
@@ -118,7 +119,7 @@
         private Button button2;
         private Button BtnDelete;
         private Button BtnEdit;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private Label label1;
         private Button BtnAdd;
         private DataGridView dataGridView1;

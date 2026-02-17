@@ -26,4 +26,19 @@ namespace person2
             };
         }
     }
+    public class OperationResult<T> : OperationResult
+    {
+        public T Data { get; set; }
+
+        public static OperationResult<T> Failed(string message, T data)
+        {
+            return new OperationResult<T>
+            {
+                IsSuccess = false,
+                Message = message,
+                Data = data
+            };
+        }
+
+    }
 }

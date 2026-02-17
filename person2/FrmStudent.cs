@@ -12,7 +12,7 @@ namespace person2
 {
     public partial class FrmStudent : Form
     {
-        StudentManager studentManager = new StudentManager();
+        StudentManagerList studentManager = new StudentManagerList();
         Student student;
         int index;
         Action action;

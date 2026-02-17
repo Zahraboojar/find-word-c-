@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="microsoft.data.sqlclient" Version="6.1.4" />
+  </ItemGroup>
+
 </Project>

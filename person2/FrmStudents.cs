@@ -12,7 +12,9 @@ namespace person2
 {
     public partial class FrmStudents : Form
     {
-        StudentManager StudentManager = new StudentManager();
+        StudentManagerList StudentManagerli = new StudentManagerList();
+        StudentManagerAccess StudentManagerAcc = new StudentManagerAccess();
+        StudentManagerSql StudentManagerSql = new StudentManagerSql();
         Student student = new Student();
 
         public event Action StudentChanged;
@@ -56,8 +58,17 @@ namespace person2
         }
         private void Fill_Dvg()
         {
-            dataGridView1.DataSource = StudentManager.GetAll().ToList();
-            dataGridView1.BindColumns<Student>();
+            if (ManageDataSource.SelectedDataSource == DataSources.list)
+            {
+                dataGridView1.DataSource = StudentManagerli.GetAll().ToList();
+            }
+            else if (ManageDataSource.SelectedDataSource == DataSources.sql)
+            {
+                dataGridView1.DataSource = StudentManagerSql.Select(txtSearch.Text).Data;
+            }
+            else
+            {
+            }
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -69,7 +80,7 @@ namespace person2
                 DialogResult result = AlertHelper.Question("آیا مایل یه حذف دانش آموز هستید ؟");
                 if (result == DialogResult.Yes)
                 {
-                    StudentManager.Remove(row);
+                    StudentManagerli.Remove(row);
                     AlertHelper.Information("دانش آموز با موفقیت حذف شد");
                     Fill_Dvg();
                 }
@@ -86,6 +97,11 @@ namespace person2
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            Fill_Dvg();
         }
     }
 }
